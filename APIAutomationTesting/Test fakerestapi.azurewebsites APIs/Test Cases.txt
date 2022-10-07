@@ -1,0 +1,100 @@
+Check Postman Workspace: https://www.postman.com/iolagalal/workspace/fakerestapi-azurewebsites
+
+--------------------------------------------------
+ API: GET /api/v1/Authors
+--------------------------------------------------
+
+ Test Case 1: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+
+ Test Case 2: check objects inside response
+ Expected Result: {"id","idBook","firstName","lastName"}
+ Actual Result: {"id","idBook","firstName","lastName"}
+ Status: Pass
+
+ Test Case 3: check response Headers contain "content-type"
+ Expected Result: TRUE
+ Actual Result: TRUE
+ Status: Pass
+
+--------------------------------------------------
+ API: POST /api/v1/Authors
+--------------------------------------------------
+
+ Test Case 1: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+
+ Test Case 2: firstname & lastname should be mandatory at response body
+ Expected Result: 400 Bad Request
+ Actual Result: 200 OK
+ Status: Fail
+
+ Test Case 3: firstname is missed in the request body (same for lastname)
+ Expected Result: 400 Bad Request
+ Actual Result: 200 OK
+ Status: Fail
+
+--------------------------------------------------
+ API: GET /api/v1/Authors/authors/books/{idBook}
+--------------------------------------------------
+
+ Test Case: search with valid idBook
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+
+ Test Case 2: check invalid book id (enter letter instead of number)
+ Expected Result: 400 Bad Request
+ Actual Result: 400 Bad Request
+ Status: Pass
+
+--------------------------------------------------
+ API: GET /api/v1/Authors/{id}
+--------------------------------------------------
+
+ Test Case 1: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+
+ Test Case 2: check invalid author id
+ Expected Result: 404 Not Found
+ Actual Result: 404 Not Found
+ Status: Pass
+
+ Test Case 3: check invalid author id (enter letter instead of number)
+ Expected Result: 400 Bad Request
+ Actual Result: 400 Bad Request
+ Status: Pass
+
+--------------------------------------------------
+ API: PUT /api/v1/Authors/{id}
+--------------------------------------------------
+
+ Test Case 1: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+
+ Test Case 2: confirm that Author's data in response is updated successfully
+ Expected Result: new (firstname, lastname)
+ Actual Result: new(firstname, lastname)
+ Status: Pass
+
+--------------------------------------------------
+ API: DELETE /api/v1/Authors/{id}
+--------------------------------------------------
+
+ Test Case 1: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+
+ Test Case 2: check invalied author id
+ Expected Result: 404 Not Found
+ Actual Result: 404 Not Found
+ Status: Pass
